@@ -37,7 +37,11 @@ CORS(app)
     returns status code 200 and json {"success": True, "drinks": drinks} where drinks is the list of drinks
         or appropriate status code indicating reason for failure
 '''
-
+@app.route('/drinks-detail')
+@requires_auth('get:drinks-detail')
+def drinks(payload):
+    print(payload)
+    return 'Access Granted'
 
 '''
 @TODO implement endpoint
